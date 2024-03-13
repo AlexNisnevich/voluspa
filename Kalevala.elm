@@ -95,7 +95,7 @@ processClick signal =
 {- Path to a Voluspa game server
    (see https://github.com/neunenak/voluspa-server) -}
 server : String
-server = "ws://209.38.174.55:22000"
+server = "wss://kalevalagame.com"
 
 {- Encodes an Action as a JSON string -}
 encode : Action -> String

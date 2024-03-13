@@ -6692,7 +6692,7 @@ Elm.Kalevala.make = function (_elm) {
       0,
       $Serialize.action(action));
    };
-   var server = "ws://209.38.174.55:22000";
+   var server = "wss://kalevalagame.com";
    var constructAction = F5(function (clickType,
    seed,
    mousePos,
