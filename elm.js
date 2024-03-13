@@ -6692,7 +6692,7 @@ Elm.Kalevala.make = function (_elm) {
       0,
       $Serialize.action(action));
    };
-   var server = "ws://ec2-52-10-22-64.us-west-2.compute.amazonaws.com:22000";
+   var server = "ws://209.38.174.55:22000";
    var constructAction = F5(function (clickType,
    seed,
    mousePos,
@@ -14685,7 +14685,7 @@ var commonEvents = [
     Only one DOMDelegator should exist because we do not want
         duplicate event listeners bound to the DOM.
 
-    `Delegator` will also `listenTo()` all events unless 
+    `Delegator` will also `listenTo()` all events unless
         every caller opts out of it
 */
 module.exports = Delegator
@@ -14727,7 +14727,7 @@ function Delegator(opts) {
  * Safe for element IDs and server-side lookups.
  *
  * Extracted from CLCTR
- * 
+ *
  * Copyright (c) Eric Elliott 2012
  * MIT License
  */
@@ -14793,7 +14793,7 @@ function Delegator(opts) {
 
       counter = safeCounter().toString(36).slice(-4);
 
-    return date.slice(-2) + 
+    return date.slice(-2) +
       counter + print + random;
   };
 
@@ -16362,7 +16362,7 @@ Elm.Native.WebSocket.make = function(elm) {
 
     var pending = [];
     var ready = false;
-    
+
     ws.onopen = function(e) {
       var len = pending.length;
       for (var i = 0; i < len; ++i) { ws.send(pending[i]); }
@@ -16371,11 +16371,11 @@ Elm.Native.WebSocket.make = function(elm) {
     ws.onmessage = function(event) {
       elm.notify(incoming.id, event.data);
     };
-    
+
     function send(msg) {
       ready ? ws.send(msg) : pending.push(msg);
     }
-    
+
     function take1(x,y) { return x }
     return A3(Signal.map2, F2(take1), incoming, A2(Signal.map, send, outgoing));
   }

@@ -72,7 +72,7 @@ Elm.Kalevala.make = function (_elm) {
       0,
       $Serialize.action(action));
    };
-   var server = "ws://ec2-52-10-22-64.us-west-2.compute.amazonaws.com:22000";
+   var server = "wss://ec2-52-10-22-64.us-west-2.compute.amazonaws.com:22000";
    var constructAction = F5(function (clickType,
    seed,
    mousePos,

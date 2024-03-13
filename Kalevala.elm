@@ -28,8 +28,8 @@ import Deserialize
 import Debug
 
 isRemoteSignal : Signal Bool
-isRemoteSignal = 
-  let getIsRemoteFromClickSignal event = 
+isRemoteSignal =
+  let getIsRemoteFromClickSignal event =
     case event of
     StartSinglePlayer -> Just False
     StartTwoPlayerHotseat -> Just False
@@ -92,10 +92,10 @@ processClick signal =
   in
     constructAction <~ signal ~ seedSignal ~ sampledMouse ~ Window.dimensions ~ sampledPlayerName
 
-{- Path to a Voluspa game server 
+{- Path to a Voluspa game server
    (see https://github.com/neunenak/voluspa-server) -}
 server : String
-server = "ws://ec2-52-10-22-64.us-west-2.compute.amazonaws.com:22000"
+server = "ws://209.38.174.55:22000"
 
 {- Encodes an Action as a JSON string -}
 encode : Action -> String
@@ -126,7 +126,7 @@ getCpuResponse playerAction delayTime =
   in
     Time.delay delayTime (processCpuResponse <~ playerAction)
 
-{- The main game loop. 
+{- The main game loop.
    The state is folded over time over a stream of Actions, coming from the client and from the server (for an online game.)
    Actions from the client are constructed by processing a signal of ClickEvents from clickMailbox.
    In the case the the game type is HumanVsHumanRemote, Actions are also sent to the server over a websocket,
